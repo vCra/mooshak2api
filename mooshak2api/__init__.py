@@ -3,6 +3,7 @@ import requests
 
 from .user import User
 import mooshak2api.contests
+import mooshak2api.problems
 
 __version__ = '0.1.0'
 __author__ = 'Aaron Walker <aaw13@aber.ac.uk>'
@@ -65,3 +66,5 @@ def login(endpoint, username, password, contest=None, admin=False):
     client.user = user
     return client
 
+if __name__ == '__main__':
+    pass
