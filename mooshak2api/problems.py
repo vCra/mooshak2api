@@ -2,6 +2,7 @@ import requests
 
 from mooshak2api import contests
 from mooshak2api.contests import Contest
+from mooshak2api.evaluation import Evaluation
 from mooshak2api.factory import GenericObject
 
 
@@ -34,6 +35,20 @@ class Problem(GenericObject):
     def get_contest(self, connection):
         return contests.get(connection, self.contest_id)
 
+    def evaluate(self, connection, problem_code):
+        files = {"program": problem_code}
+        headers = connection.headers_with_auth().copy()
+        headers.pop("Content-Type")
+        headers.pop("Accept")
+        r = requests.post(
+            f"{connection.endpoint}data/contests/{self.contest_id}/problems/{self.id}/evaluate",
+            headers=headers,
+            files=files
+        )
+        if int(r.status_code) == 500:
+            raise Exception(r.json()["message"])
+        return Evaluation(self.contest_id, self.id).load_from_dict(r.json())
+
 
 def get(connection, contest, problem_id):
     if type(contest) is Contest:
@@ -54,3 +69,4 @@ def all(connection, contest):
     for c in r.json():
         results.append(Problem(contest).load_from_dict(c))
     return results
+

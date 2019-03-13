@@ -22,7 +22,6 @@ class GenericObject:
         """
         Reads data from a JSON Object/Dict, and sets the attributes of this object with each corresponding key
         """
-        print(json)
         for key in json.keys():
             self.property_names.add(key)
             if key not in self.reserved_propertys:

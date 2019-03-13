@@ -24,7 +24,6 @@ class Contest(GenericObject):
         return r
 
     def create(self, connection):
-        print(self.as_json())
         r = requests.post(
             f"{connection.endpoint}data/contests/",
             headers=connection.headers_with_auth(),
