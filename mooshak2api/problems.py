@@ -1,6 +1,8 @@
-import requests
+from typing import Union, Iterable
 
-from mooshak2api import contests
+import requests
+from mooshak2api.contests import get as get_contest
+from mooshak2api.client import Client
 from mooshak2api.contests import Contest
 from mooshak2api.evaluation import Evaluation
 from mooshak2api.factory import GenericObject
@@ -12,12 +14,12 @@ class Problem(GenericObject):
      It must contain a Contest ID, as the REST API does not allow accessing problems directly
 
     """
-    def __init__(self, contest_id, *args, **kwargs):
-        super(Problem, self).__init__(*args, **kwargs)
+    def __init__(self, contest_id):
+        super(Problem, self).__init__()
         self.contest_id = contest_id
     contest_id = None
 
-    def update(self, connection):
+    def update(self, connection: Client):
         r = requests.put(
             f"{connection.endpoint}data/contests/{self.contest_id}/problems/{self.id}",
             headers=connection.headers_with_auth(),
@@ -25,17 +27,17 @@ class Problem(GenericObject):
         )
         return r
 
-    def delete(self, connection):
+    def delete(self, connection: Client):
         r = requests.delete(
             f"{connection.endpoint}data/contests/{self.contest_id}/problems/{self.id}",
             headers=connection.headers_with_auth()
         )
         return r
 
-    def get_contest(self, connection):
-        return contests.get(connection, self.contest_id)
+    def get_contest(self, connection: Client):
+        return get_contest(connection, self.contest_id)
 
-    def evaluate(self, connection, problem_code):
+    def evaluate(self, connection: Client, problem_code: int):
         files = {"program": problem_code}
         headers = connection.headers_with_auth().copy()
         headers.pop("Content-Type")
@@ -50,16 +52,17 @@ class Problem(GenericObject):
         return Evaluation(self.contest_id, self.id).load_from_dict(r.json())
 
 
-def get(connection, contest, problem_id):
+def get(connection: Client, contest: Union[Contest, int], problem_id: int) -> Problem:
     if type(contest) is Contest:
         contest = contest.id
     r = requests.get(f"{connection.endpoint}data/contests/{contest}/problems/{problem_id}",
                      headers=connection.headers_with_auth())
+    r.raise_for_status()
     problem = Problem(contest).load_from_dict(r.json())
     return problem
 
 
-def all(connection, contest):
+def get_all(connection: Client, contest: Union[Contest, int]) -> Iterable[Problem]:
     if type(contest) is Contest:
         contest = contest.id
     r = requests.get(

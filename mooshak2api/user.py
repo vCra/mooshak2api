@@ -1,7 +1,8 @@
 import requests
 import datetime
 
-class User():
+
+class User:
 
     token = None
     last_refresh = None
