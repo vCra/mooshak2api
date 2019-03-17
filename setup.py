@@ -15,7 +15,7 @@ def read(filename):
 
 setup(
     name="mooshak2api",
-    version="0.2.0",
+    version="0.2.1",
     url="https://github.com/vCra/mooshak2api",
     license='MIT',
 
@@ -29,6 +29,13 @@ setup(
 
     install_requires=[
         'requests'
+    ],
+    setup_requires=[
+        'pytest-runner',
+    ],
+    tests_require=[
+        'pytest',
+        'pytest-cov'
     ],
 
     classifiers=[

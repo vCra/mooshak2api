@@ -38,3 +38,9 @@ nosetests.xml
 \.idea/
 
 \.DS_Store
+
+coverage\.xml
+
+cc-test-reporter
+
+\.eggs/
