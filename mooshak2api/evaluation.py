@@ -40,7 +40,7 @@ class Evaluation(GenericObject):
                           "Memory Limit Exceeded", "Output Limit Exceeded", "Presentation Error",
                           "Program Size Exceeded", "Requires Reevaluation", "Runtime Error", "Time Limit Exceeded"},
             warning_status={"Wrong Answer", "Evaluation Skipped"},
-            success_statu={"Accepted"},
+            success_status={"Accepted"},
             info_status={"Evaluating"}
         )
         if not hasattr(self, "status") or self.status is None:
