@@ -9,6 +9,14 @@ mooshak2api
    :target: https://travis-ci.org/vCra/mooshak2api
    :alt: Latest Travis CI build status
 
+.. image:: https://api.codeclimate.com/v1/badges/8e8e91a4db09a5f731a9/test_coverage
+   :target: https://codeclimate.com/github/vCra/mooshak2api/test_coverage
+   :alt: Test Coverage
+
+.. image:: https://api.codeclimate.com/v1/badges/8e8e91a4db09a5f731a9/maintainability
+   :target: https://codeclimate.com/github/vCra/mooshak2api/maintainability
+   :alt: Maintainability
+
 mooshak2api is a Python API for interacting with the Mooshak 2 REST API.
 
 Usage
