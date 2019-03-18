@@ -4,6 +4,13 @@ from mooshak2api.user import User
 
 
 class Client:
+    """
+    A bundling of a mooshak2 endpoint, and a User. In most cases you should use mooshak2api.login rather than initiating
+    this class yourself.
+
+    You should add a User to this Object manually, via using self.user.
+    Included are default headers that should be used for most JSON based messages.
+    """
     endpoint = None
     user = None
 
@@ -29,8 +36,8 @@ class Client:
 
     def test(self):
         """
-        Tests the connection to the server
-        :return: True if a connection could be made
+        Tests the connection.rst to the server
+        :return: True if a connection.rst could be made
         """
         r = requests.get(self.endpoint)
         return r.json()["result"]["value"] == "Welcome to Mooshak 2.0 API"
@@ -41,8 +48,8 @@ def login(endpoint, username, password, contest=None, admin=False):
     Creates an authenticated client to interact with the Mooshak 2 API
 
     :param endpoint: The API Endpoint, ending in a slash. E.g,  https://mooshak2.dcc.fc.up.pt/mooshak-test/api/
-    :param username: A username for the connection, E.g. admin
-    :param password: A password for the connection, E.g. admin
+    :param username: A username for the connection.rst, E.g. admin
+    :param password: A password for the connection.rst, E.g. admin
     :param contest: The contest for the (non admin) user to interact with
     :param admin: If this is an admin account, and you want to administrate
     :return: A Client Object
