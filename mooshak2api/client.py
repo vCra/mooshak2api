@@ -27,7 +27,8 @@ class Client:
         """
         Returns common headers with the JWT Header included. Ensure that self.user is a User Object, and that
         the user has been logged in with the .login() method.
-        :return: dict containing headers
+
+        :return: returns a dict containing headers
         """
         try:
             return {**self.headers, "Authorization": f"Bearer {self.user.token}"}
@@ -37,7 +38,8 @@ class Client:
     def test(self):
         """
         Tests the connection.rst to the server
-        :return: True if a connection.rst could be made
+
+        :return: returns True if a connection.rst could be made
         """
         r = requests.get(self.endpoint)
         return r.json()["result"]["value"] == "Welcome to Mooshak 2.0 API"

@@ -37,7 +37,7 @@ class Problem(GenericObject):
     def get_contest(self, connection: Client):
         return get_contest(connection, self.contest_id)
 
-    def evaluate(self, connection: Client, problem_code: int):
+    def evaluate(self, connection: Client, problem_code):
         files = {"program": problem_code}
         headers = connection.headers_with_auth().copy()
         headers.pop("Content-Type")

@@ -2,8 +2,8 @@ mooshak2api
 ===========
 
 .. image:: https://img.shields.io/pypi/v/mooshak2api.svg
-    :target: https://pypi.python.org/pypi/mooshak2api
-    :alt: Latest PyPI version
+   :target: https://pypi.python.org/pypi/mooshak2api
+   :alt: Latest PyPI version
 
 .. image:: https://travis-ci.org/vCra/mooshak2api.png
    :target: https://travis-ci.org/vCra/mooshak2api
@@ -16,6 +16,10 @@ mooshak2api
 .. image:: https://api.codeclimate.com/v1/badges/8e8e91a4db09a5f731a9/maintainability
    :target: https://codeclimate.com/github/vCra/mooshak2api/maintainability
    :alt: Maintainability
+
+.. image:: https://readthedocs.org/projects/mooshak2api/badge/?version=latest
+   :target: https://mooshak2api.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
 
 mooshak2api is a Python API for interacting with the Mooshak 2 REST API.
 
@@ -46,6 +50,12 @@ Compatibility
 
 Only Python >= 3.6 is supported.
 It is recommended you use the latest version of Mooshak 2, as some older versions do not work completely
+
+Help!
+-----
+
+Is something not working properly? Are the docs awful? Want to help make this better?
+If the answer is yes then great! All you have to do is open an issue. 
 
 Licence
 -------

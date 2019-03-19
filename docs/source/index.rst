@@ -13,6 +13,8 @@ Welcome to mooshak2api's documentation!
    introduction.rst
    installation.rst
    connection.rst
+   contests.rst
+   problems.rst
 
 Indices and tables
 ==================

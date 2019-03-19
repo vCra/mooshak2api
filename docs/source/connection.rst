@@ -18,9 +18,11 @@ if the session has expired, and if so, login again.
 .. autoclass:: mooshak2api.client.Client
 
 If you want to test that the endpoint is accessible, then you can use test
+
 .. autofunction:: mooshak2api.client.Client.test
 
 If you want to make a connection, you can use headers_with_auth
+
 .. autofunction:: mooshak2api.client.Client.headers_with_auth
 
 
