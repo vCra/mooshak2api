@@ -4,7 +4,7 @@ import mooshak2api.contests
 import mooshak2api.problems
 from .client import login
 
-__version__ = '0.2.1'
+__version__ = '0.2.3'
 __author__ = 'Aaron Walker <aaw13@aber.ac.uk>'
 __all__ = [contests, problems, login]
 

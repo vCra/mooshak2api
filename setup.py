@@ -15,7 +15,7 @@ def read(filename):
 
 setup(
     name="mooshak2api",
-    version="0.2.1",
+    version="0.2.3",
     url="https://github.com/vCra/mooshak2api",
     license='MIT',
 
