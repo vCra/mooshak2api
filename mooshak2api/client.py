@@ -44,6 +44,13 @@ class Client:
         r = requests.get(self.endpoint)
         return r.json()["result"]["value"] == "Welcome to Mooshak 2.0 API"
 
+    def refresh(self):
+        """
+        Refreshes this users token. Should be called every x seconds, in order to ensure that the user stays logged in
+        """
+        r = requests.post(f"{self.endpoint}auth/refresh/", headers=self.headers_with_auth())
+        r.raise_for_status()
+
 
 def login(endpoint, username, password, contest=None, admin=False):
     """

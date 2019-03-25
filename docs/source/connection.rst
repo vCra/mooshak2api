@@ -25,4 +25,7 @@ If you want to make a connection, you can use headers_with_auth
 
 .. autofunction:: mooshak2api.client.Client.headers_with_auth
 
+It's important that you periodically call refresh. This ensures that your connection to Mooshak stays active. This could
+be done via a scheduler, or via integrating it into your applications event loop
 
+.. autofunction:: mooshak2api.client.Client.refresh
